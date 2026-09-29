@@ -1,3 +1,4 @@
 .vercel
 .env*
 _paint.py
+_i18n.py

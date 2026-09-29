@@ -356,6 +356,13 @@ footer{background:var(--milk)}
 @media (max-width:1000px){ .sec-head .doodle{right:0;top:-40px;width:56px;height:56px} .hero .doodle.d2,.hero .doodle.d3{display:none} }
 @media (max-width:640px){ .hero-pic{transform:rotate(1deg)} .ev,.ev:nth-child(odd),.ev:nth-child(even){transform:none} .gal figure{transform:none!important} .board .chalkd{display:none} }
 @media (prefers-reduced-motion:reduce){ .js .float{animation:none} }
+
+/* přepínač jazyků */
+.lang{display:flex;background:var(--paper);border-radius:999px;padding:3px;box-shadow:0 4px 12px -8px rgba(59,33,26,.45);border:1.5px dashed rgba(59,33,26,.18)}
+.lang button{border:0;background:none;font:inherit;font-weight:700;font-size:.78rem;letter-spacing:.08em;color:var(--muted);padding:.32rem .62rem;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.lang button:hover{color:var(--espresso)} .lang button.on{background:var(--yellow);color:var(--espresso)}
+.perks span.t{background:none!important;padding:0;box-shadow:none;border-radius:0}
+@media (max-width:640px){ .lang button{padding:.3rem .5rem;font-size:.72rem} }
 </style>
 </head>
 <body>
@@ -372,25 +379,26 @@ footer{background:var(--milk)}
 
 <div class="demobar">
   <div class="wrap">
-    <b>Návrh webu</b>
-    <span>Tohle není oficiální web Kafíčka. Je to nezávazná ukázka od filsns s.r.o., postavená z vašeho Facebooku a veřejných profilů.</span>
-    <a href="#nabidka">Kdo to poslal →</a>
+    <b data-i18n="demo.tag">Návrh webu</b>
+    <span data-i18n="demo.text">Tohle není oficiální web Kafíčka. Je to nezávazná ukázka od filsns s.r.o., postavená z vašeho Facebooku a veřejných profilů.</span>
+    <a href="#nabidka" data-i18n="demo.link">Kdo to poslal →</a>
   </div>
 </div>
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="img/logo.jpg" alt="" width="400" height="400"><span style="display:block"><b>Kafíčko</b><span>kavárna · Kunžak</span></span></a>
+    <a class="brand" href="#top"><img src="img/logo.jpg" alt="" width="400" height="400"><span style="display:block"><b>Kafíčko</b><span data-i18n="brand.sub">kavárna · Kunžak</span></span></a>
     <div class="navlinks" id="navlinks">
-      <a href="#tabule">Na tabuli</a>
-      <a href="#akce">Kvízy a akce</a>
-      <a href="#vino">Víno</a>
-      <a href="#rodiny">Pro rodiny</a>
-      <a href="#kontakt">Kde nás najdete</a>
+      <a href="#tabule" data-i18n="nav.tab">Na tabuli</a>
+      <a href="#akce" data-i18n="nav.akce">Kvízy a akce</a>
+      <a href="#vino" data-i18n="nav.vino">Víno</a>
+      <a href="#rodiny" data-i18n="nav.rod">Pro rodiny</a>
+      <a href="#kontakt" data-i18n="nav.kont">Kde nás najdete</a>
     </div>
     <div class="navmeta">
-      <a class="btn" href="tel:+420702054332">Zavolat</a>
-      <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+      <div class="lang" id="lang" aria-label="Jazyk"><button type="button" data-lang="cs" class="on">CZ</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="de">DE</button></div>
+      <a class="btn" href="tel:+420702054332" data-i18n="nav.call">Zavolat</a>
+      <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="navlinks" data-i18n="nav.menu">Menu</button>
     </div>
   </div>
 </nav>
@@ -403,32 +411,32 @@ footer{background:var(--milk)}
   <svg class="doodle gold float slow rev d5" aria-hidden="true"><use href="#dd-spark"/></svg>
   <div class="wrap">
     <div>
-      <p class="eyebrow h-in">Česká Kanada, přímo na náměstí</p>
-      <h1 class="h-in">Kafíčko <em>na náměstí</em> v Kunžaku</h1>
-      <p class="hero-sub h-in">Italská káva Moak, zákusky z cukráren v Telči, Mrákotíně a Zahrádkách, zmrzlina, chlebíčky a dobré moravské víno. Letní terasa s výhledem na kostel sv. Bartoloměje.</p>
+      <p class="eyebrow h-in" data-i18n="h.eb">Česká Kanada, přímo na náměstí</p>
+      <h1 class="h-in" data-i18n="h.h1">Kafíčko <em>na náměstí</em> v Kunžaku</h1>
+      <p class="hero-sub h-in" data-i18n="h.sub">Italská káva Moak, zákusky z cukráren v Telči, Mrákotíně a Zahrádkách, zmrzlina, chlebíčky a dobré moravské víno. Letní terasa s výhledem na kostel sv. Bartoloměje.</p>
       <p class="status h-in" id="status"><span class="dot"></span><span id="statusText">Otevírací doba níže</span></p>
       <div class="hero-cta h-in">
-        <a class="btn yellow" href="#tabule">Co je dnes na tabuli</a>
-        <a class="btn line" href="#akce">Příští kvíz</a>
+        <a class="btn yellow" href="#tabule" data-i18n="h.b1">Co je dnes na tabuli</a>
+        <a class="btn line" href="#akce" data-i18n="h.b2">Příští kvíz</a>
       </div>
     </div>
     <div class="hero-pic">
       <span class="tape" aria-hidden="true"></span>
       <img src="img/fasada.jpg" alt="Kavárna Kafíčko na náměstí v Kunžaku, žlutá fasáda, slunečník a kolo před vchodem" width="960" height="720" fetchpriority="high">
-      <span class="pcap">U nás na náměstí</span>
-      <p class="note">Dnes na tabuli:<small>cappuccino, zákusek z Telče a kousek klidu</small></p>
-      <p class="stamp"><span><b>4,7</b>z 19 hodnocení</span></p>
+      <span class="pcap" data-i18n="h.pcap">U nás na náměstí</span>
+      <p class="note" data-i18n="h.note">Dnes na tabuli:<small>cappuccino, zákusek z Telče a kousek klidu</small></p>
+      <p class="stamp"><span data-i18n="h.stamp"><b>4,7</b>z 19 hodnocení</span></p>
     </div>
   </div>
 </header>
 
 <div class="perks">
   <div class="wrap">
-    <span><svg viewBox="0 0 24 24"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17M8 3v3M12 3v3"/></svg>Italská káva Moak</span>
-    <span><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20v-7a7 7 0 0 1 14 0v7"/><path d="M12 6V4"/></svg>Letní terasa na náměstí</span>
-    <span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M6 20a6 6 0 0 1 12 0"/></svg>Dětský koutek</span>
-    <span><svg viewBox="0 0 24 24"><path d="M5 11c0-3 2-5 4-5s3 2 3 2 1-2 3-2 4 2 4 5-7 9-7 9-7-6-7-9z"/></svg>Pejsci vítáni</span>
-    <span><svg viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1"/></svg>Wi-Fi zdarma</span>
+    <span><svg viewBox="0 0 24 24"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17M8 3v3M12 3v3"/></svg><span class="t" data-i18n="p.1">Italská káva Moak</span></span>
+    <span><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20v-7a7 7 0 0 1 14 0v7"/><path d="M12 6V4"/></svg><span class="t" data-i18n="p.2">Letní terasa na náměstí</span></span>
+    <span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M6 20a6 6 0 0 1 12 0"/></svg><span class="t" data-i18n="p.3">Dětský koutek</span></span>
+    <span><svg viewBox="0 0 24 24"><path d="M5 11c0-3 2-5 4-5s3 2 3 2 1-2 3-2 4 2 4 5-7 9-7 9-7-6-7-9z"/></svg><span class="t" data-i18n="p.4">Pejsci vítáni</span></span>
+    <span><svg viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1"/></svg><span class="t" data-i18n="p.5">Wi-Fi zdarma</span></span>
   </div>
 </div>
 
@@ -436,37 +444,37 @@ footer{background:var(--milk)}
   <div class="wrap">
     <div class="sec-head rv">
       <svg class="doodle float " aria-hidden="true"><use href="#dd-cup"/></svg>
-      <p class="eyebrow">Co u nás dostanete</p>
-      <h2>Na tabuli</h2>
-      <p class="lede">Jako ta křídová před dveřmi. Kávu vaříme z italské Moak, zákusky vozíme od cukrářů z okolí a na víno jezdíme na jižní Moravu.</p>
+      <p class="eyebrow" data-i18n="t.eb">Co u nás dostanete</p>
+      <h2 data-i18n="nav.tab">Na tabuli</h2>
+      <p class="lede" data-i18n="t.lede">Jako ta křídová před dveřmi. Kávu vaříme z italské Moak, zákusky vozíme od cukrářů z okolí a na víno jezdíme na jižní Moravu.</p>
     </div>
     <div class="board rv">
       <svg class="chalkd c1" aria-hidden="true"><use href="#dd-cup"/></svg><svg class="chalkd c2" aria-hidden="true"><use href="#dd-spark"/></svg><svg class="chalkd c3" aria-hidden="true"><use href="#dd-cake"/></svg><svg class="chalkd c4" aria-hidden="true"><use href="#dd-bean"/></svg>
-      <div class="board-head"><h3>Kavárna Kafíčko</h3><p>náměstí Komenského 93</p></div>
+      <div class="board-head"><h3 data-i18n="t.h3">Kavárna Kafíčko</h3><p>náměstí Komenského 93</p></div>
       <div class="bcols">
         <div class="bsec">
-          <h4>Káva Moak</h4>
+          <h4 data-i18n="t.k">Káva Moak</h4>
           <ul>
             <li>Espresso</li><li>Cappuccino</li><li>Caffè latte</li><li>Flat white</li>
-            <li>Vídeňská káva<small>se šlehačkou</small></li><li>Ledová káva<small>v létě</small></li>
+            <li data-i18n="t.k5">Vídeňská káva<small>se šlehačkou</small></li><li data-i18n="t.k6">Ledová káva<small>v létě</small></li>
           </ul>
         </div>
         <div class="bsec">
-          <h4>Sladké</h4>
+          <h4 data-i18n="t.s">Sladké</h4>
           <ul>
-            <li>Zákusky z Telče<small>a z Mrákotína</small></li><li>Dorty ze Zahrádek</li><li>Zmrzlina<small>od dubna</small></li>
+            <li data-i18n="t.s1">Zákusky z Telče<small>a z Mrákotína</small></li><li data-i18n="t.s2">Dorty ze Zahrádek</li><li data-i18n="t.s3">Zmrzlina<small>od dubna</small></li>
           </ul>
-          <h4 style="margin-top:1.2rem">Slané</h4>
-          <ul><li>Chlebíčky</li></ul>
+          <h4 style="margin-top:1.2rem" data-i18n="t.sl">Slané</h4>
+          <ul><li data-i18n="t.sl1">Chlebíčky</li></ul>
         </div>
         <div class="bsec">
-          <h4>Víno a sezóna</h4>
+          <h4 data-i18n="t.v">Víno a sezóna</h4>
           <ul>
-            <li>Vinofol<small>Novosedly u Mikulova</small></li><li>Reva Rakvice</li><li>Vinařství Forman<small>Perná</small></li><li>Burčák<small>v září a říjnu</small></li><li>Svatomartinské<small>od 11. 11.</small></li>
+            <li>Vinofol<small>Novosedly u Mikulova</small></li><li>Reva Rakvice</li><li data-i18n="t.v3">Vinařství Forman<small>Perná</small></li><li data-i18n="t.v4">Burčák<small>v září a říjnu</small></li><li data-i18n="t.v5">Svatomartinské<small>od 11. 11.</small></li>
           </ul>
         </div>
       </div>
-      <p class="board-foot">Ceny najdete u pultu. <b>Kafíčko v Kunžaku</b> · přijďte na kus řeči</p>
+      <p class="board-foot" data-i18n="t.foot">Ceny najdete u pultu. <b>Kafíčko v Kunžaku</b> · přijďte na kus řeči</p>
     </div>
   </div>
 </section>
@@ -475,29 +483,29 @@ footer{background:var(--milk)}
   <div class="wrap">
     <div class="sec-head rv">
       <svg class="doodle float gold slow" aria-hidden="true"><use href="#dd-spark"/></svg>
-      <p class="eyebrow">Tady se Kunžak potkává</p>
-      <h2>Kvízy, burčák a svatomartinské</h2>
-      <p class="lede">Kavárenské kvízy pro týmy, ochutnávky vína a sezónní dobroty. Tohle jsou akce, které jsme u nás v posledních měsících měli.</p>
+      <p class="eyebrow" data-i18n="e.eb">Tady se Kunžak potkává</p>
+      <h2 data-i18n="e.h2">Kvízy, burčák a svatomartinské</h2>
+      <p class="lede" data-i18n="e.lede">Kavárenské kvízy pro týmy, ochutnávky vína a sezónní dobroty. Tohle jsou akce, které jsme u nás v posledních měsících měli.</p>
     </div>
     <div class="events">
-      <article class="ev rv"><img src="img/kviz-hvezdny.jpg" alt="Plakát Hvězdný kvíz" width="900" height="915" loading="lazy"><div class="b"><p class="when">17. dubna, 18:00</p><h3>Hvězdný kvíz</h3><p>Kavárenský kvíz pro týmy. Symbolické vstupné 50 Kč, tým se registruje u nás v kavárně.</p><span class="tag">proběhlo</span></div></article>
-      <article class="ev rv" style="--d:.06s"><img src="img/kviz-vanocni.jpg" alt="Plakát Předvánoční kvíz" width="900" height="638" loading="lazy"><div class="b"><p class="when">6. prosince, 16:00</p><h3>Předvánoční kvíz</h3><p>Adventní kvíz pro týmy. Symbolické vstupné 50 Kč, tým se hlásí v kavárně.</p><span class="tag">proběhlo</span></div></article>
-      <article class="ev rv" style="--d:.12s"><img src="img/kviz-letem.jpg" alt="Plakát kvízu Letem světem" width="900" height="754" loading="lazy"><div class="b"><p class="when">28. února, 19:00</p><h3>Letem světem</h3><p>Cestovatelský kvíz. Kapacita omezená, přihlašovalo se v komentářích na Facebooku.</p><span class="tag">proběhlo</span></div></article>
-      <article class="ev rv" style="--d:.18s"><img src="img/zmrzlina.jpg" alt="Plakát: zmrzlina opět od úterý" width="900" height="900" loading="lazy"><div class="b"><p class="when">od dubna</p><h3>Zmrzlina je zpět</h3><p>Každé jaro znovu otevíráme zmrzlinu. Nejlepší na terase s výhledem na kašnu.</p><span class="tag">každý rok</span></div></article>
+      <article class="ev rv"><img src="img/kviz-hvezdny.jpg" alt="Plakát Hvězdný kvíz" width="900" height="915" loading="lazy"><div class="b"><p class="when" data-i18n="e.1w">17. dubna, 18:00</p><h3 data-i18n="e.1h">Hvězdný kvíz</h3><p data-i18n="e.1p">Kavárenský kvíz pro týmy. Symbolické vstupné 50 Kč, tým se registruje u nás v kavárně.</p><span class="tag" data-i18n="e.past">proběhlo</span></div></article>
+      <article class="ev rv" style="--d:.06s"><img src="img/kviz-vanocni.jpg" alt="Plakát Předvánoční kvíz" width="900" height="638" loading="lazy"><div class="b"><p class="when" data-i18n="e.2w">6. prosince, 16:00</p><h3 data-i18n="e.2h">Předvánoční kvíz</h3><p data-i18n="e.2p">Adventní kvíz pro týmy. Symbolické vstupné 50 Kč, tým se hlásí v kavárně.</p><span class="tag" data-i18n="e.past">proběhlo</span></div></article>
+      <article class="ev rv" style="--d:.12s"><img src="img/kviz-letem.jpg" alt="Plakát kvízu Letem světem" width="900" height="754" loading="lazy"><div class="b"><p class="when" data-i18n="e.3w">28. února, 19:00</p><h3 data-i18n="e.3h">Letem světem</h3><p data-i18n="e.3p">Cestovatelský kvíz. Kapacita omezená, přihlašovalo se v komentářích na Facebooku.</p><span class="tag" data-i18n="e.past">proběhlo</span></div></article>
+      <article class="ev rv" style="--d:.18s"><img src="img/zmrzlina.jpg" alt="Plakát: zmrzlina opět od úterý" width="900" height="900" loading="lazy"><div class="b"><p class="when" data-i18n="e.4w">od dubna</p><h3 data-i18n="e.4h">Zmrzlina je zpět</h3><p data-i18n="e.4p">Každé jaro znovu otevíráme zmrzlinu. Nejlepší na terase s výhledem na kašnu.</p><span class="tag" data-i18n="e.4t">každý rok</span></div></article>
     </div>
 
     <div class="team rv">
       <div>
-        <p class="eyebrow">Další kvíz se chystá</p>
-        <h3>Přihlaste tým předem</h3>
-        <p>Kapacita bývá omezená. Tady si místo zamluvíte za půl minuty, bez komentářů pod příspěvkem.</p>
+        <p class="eyebrow" data-i18n="tm.eb">Další kvíz se chystá</p>
+        <h3 data-i18n="tm.h">Přihlaste tým předem</h3>
+        <p data-i18n="tm.p">Kapacita bývá omezená. Tady si místo zamluvíte za půl minuty, bez komentářů pod příspěvkem.</p>
       </div>
       <form class="tf" id="tform" novalidate>
-        <div class="f"><label for="t-name">Název týmu</label><input id="t-name" type="text" placeholder="Např. Kunžačtí sokoli"></div>
-        <div class="f"><label for="t-size">Počet hráčů</label><select id="t-size"><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option></select></div>
-        <div class="f full"><label for="t-phone">Telefon kapitána</label><input id="t-phone" type="tel" autocomplete="tel"></div>
+        <div class="f"><label for="t-name" data-i18n="tm.l1">Název týmu</label><input id="t-name" type="text" placeholder="Např. Kunžačtí sokoli" data-i18n-ph="t.ph"></div>
+        <div class="f"><label for="t-size" data-i18n="tm.l2">Počet hráčů</label><select id="t-size"><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option></select></div>
+        <div class="f full"><label for="t-phone" data-i18n="tm.l3">Telefon kapitána</label><input id="t-phone" type="tel" autocomplete="tel"></div>
         <p class="err" id="terr" role="alert"></p>
-        <div class="f full"><button class="btn" type="submit">Přihlásit tým</button></div>
+        <div class="f full"><button class="btn" type="submit" data-i18n="tm.btn">Přihlásit tým</button></div>
       </form>
     </div>
   </div>
@@ -507,13 +515,13 @@ footer{background:var(--milk)}
   <div class="wrap">
     <div class="sec-head rv">
       <svg class="doodle float slow" aria-hidden="true"><use href="#dd-heart"/></svg>
-      <p class="eyebrow">U nás</p>
-      <h2>Kvízový večer v Kafíčku</h2>
+      <p class="eyebrow" data-i18n="g.eb">U nás</p>
+      <h2 data-i18n="g.h2">Kvízový večer v Kafíčku</h2>
     </div>
     <div class="gal rv">
-      <figure><img src="img/sal.jpg" alt="Plná kavárna při kvízovém večeru, světla ve tvaru pampelišek" width="1600" height="1200" loading="lazy"><figcaption>Plno až ke dveřím</figcaption></figure>
-      <figure><img src="img/sal2.jpg" alt="Týmy u stolů v kavárně" width="1170" height="801" loading="lazy"><figcaption>Týmy u stolů</figcaption></figure>
-      <figure><img src="img/fasada.jpg" alt="Vchod do kavárny s kolem a tabulí" width="960" height="720" loading="lazy"><figcaption>Vchod z náměstí</figcaption></figure>
+      <figure><img src="img/sal.jpg" alt="Plná kavárna při kvízovém večeru, světla ve tvaru pampelišek" width="1600" height="1200" loading="lazy"><figcaption data-i18n="g.c1">Plno až ke dveřím</figcaption></figure>
+      <figure><img src="img/sal2.jpg" alt="Týmy u stolů v kavárně" width="1170" height="801" loading="lazy"><figcaption data-i18n="g.c2">Týmy u stolů</figcaption></figure>
+      <figure><img src="img/fasada.jpg" alt="Vchod do kavárny s kolem a tabulí" width="960" height="720" loading="lazy"><figcaption data-i18n="g.c3">Vchod z náměstí</figcaption></figure>
     </div>
   </div>
 </section>
@@ -523,15 +531,15 @@ footer{background:var(--milk)}
     <div class="wine">
       <img class="rv" src="img/vino.jpg" alt="Kresba husy se dvěma lahvemi svatomartinského vína" width="900" height="1097" loading="lazy">
       <div class="rv" style="--d:.1s">
-        <p class="eyebrow">Z jižní Moravy do Kunžaku <svg class="doodle gold" aria-hidden="true" style="position:relative;display:inline-block;width:30px;height:36px;vertical-align:-8px;opacity:.85"><use href="#dd-glass"/></svg></p>
-        <h2 style="font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:.8rem">Víno od vinařů, které známe</h2>
-        <p class="lede">K zákusku sklenička, k večeru láhev. Vína vozíme od tří rodinných vinařství a pořádáme ochutnávky.</p>
+        <p class="eyebrow"><span data-i18n="w.eb">Z jižní Moravy do Kunžaku</span> <svg class="doodle gold" aria-hidden="true" style="position:relative;display:inline-block;width:30px;height:36px;vertical-align:-8px;opacity:.85"><use href="#dd-glass"/></svg></p>
+        <h2 style="font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:.8rem" data-i18n="w.h2">Víno od vinařů, které známe</h2>
+        <p class="lede" data-i18n="w.lede">K zákusku sklenička, k večeru láhev. Vína vozíme od tří rodinných vinařství a pořádáme ochutnávky.</p>
         <ul class="winery">
           <li><b>Vinofol</b><span>Novosedly u Mikulova</span></li>
           <li><b>Reva</b><span>Rakvice</span></li>
-          <li><b>Vinařství Forman</b><span>Perná u Mikulova</span></li>
+          <li><b data-i18n="w.forman">Vinařství Forman</b><span>Perná u Mikulova</span></li>
         </ul>
-        <div class="wine-tags"><span>Ochutnávky vín</span><span>Burčák v sezóně</span><span>Svatomartinské</span></div>
+        <div class="wine-tags"><span data-i18n="w.t1">Ochutnávky vín</span><span data-i18n="w.t2">Burčák v sezóně</span><span data-i18n="w.t3">Svatomartinské</span></div>
       </div>
     </div>
   </div>
@@ -541,22 +549,22 @@ footer{background:var(--milk)}
   <div class="wrap">
     <div class="sec-head rv">
       <svg class="doodle float sage" aria-hidden="true"><use href="#dd-leaf"/></svg>
-      <p class="eyebrow">Přijďte všichni</p>
-      <h2>Pro rodiny, výletníky i pejsky</h2>
+      <p class="eyebrow" data-i18n="r.eb">Přijďte všichni</p>
+      <h2 data-i18n="r.h2">Pro rodiny, výletníky i pejsky</h2>
     </div>
     <div class="fam">
-      <div class="rv"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><h3>Dětský koutek</h3><p>Místo na hraní, ať si rodiče v klidu dopijí kávu.</p></div>
-      <div class="rv" style="--d:.06s"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 11c0-3 2-5 4-5s3 2 3 2 1-2 3-2 4 2 4 5-7 9-7 9-7-6-7-9z"/></svg></span><h3>Pejsci vítáni</h3><p>Se psem můžete k nám dovnitř i na terasu.</p></div>
-      <div class="rv" style="--d:.12s"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20v-7a7 7 0 0 1 14 0v7"/></svg></span><h3>Letní terasa</h3><p>Posezení venku na náměstí, s výhledem na kostel i kašnu.</p></div>
-      <div class="rv" style="--d:.18s"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/></svg></span><h3>Na výletě Kanadou</h3><p>Zastávka po cestě na kole, pěšky nebo k Vysokému Kameni.</p></div>
+      <div class="rv"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><h3 data-i18n="p.3">Dětský koutek</h3><p data-i18n="r.1">Místo na hraní, ať si rodiče v klidu dopijí kávu.</p></div>
+      <div class="rv" style="--d:.06s"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 11c0-3 2-5 4-5s3 2 3 2 1-2 3-2 4 2 4 5-7 9-7 9-7-6-7-9z"/></svg></span><h3 data-i18n="p.4">Pejsci vítáni</h3><p data-i18n="r.2">Se psem můžete k nám dovnitř i na terasu.</p></div>
+      <div class="rv" style="--d:.12s"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20v-7a7 7 0 0 1 14 0v7"/></svg></span><h3 data-i18n="r.3h">Letní terasa</h3><p data-i18n="r.3">Posezení venku na náměstí, s výhledem na kostel i kašnu.</p></div>
+      <div class="rv" style="--d:.18s"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/></svg></span><h3 data-i18n="r.4h">Na výletě Kanadou</h3><p data-i18n="r.4">Zastávka po cestě na kole, pěšky nebo k Vysokému Kameni.</p></div>
     </div>
     <div class="square">
       <img class="rv" src="img/sal2.jpg" alt="Interiér kavárny s policí a stoly" width="1170" height="801" loading="lazy">
       <div class="rv" style="--d:.1s">
-        <p class="eyebrow">Výhled z terasy</p>
-        <h3>Kostel z roku 1370 a kašna z jednoho kamene</h3>
-        <p>Z terasy máte přímo na očích dominantu náměstí, kostel sv. Bartoloměje ze 14. století, a rokokovou kašnu vytesanou z jediného kusu kamene.</p>
-        <p>V létě tu sedíte pod slunečníkem se zmrzlinou, v zimě uvnitř pod lampami, které vypadají jako pampelišky.</p>
+        <p class="eyebrow" data-i18n="r.seb">Výhled z terasy</p>
+        <h3 data-i18n="r.sh">Kostel z roku 1370 a kašna z jednoho kamene</h3>
+        <p data-i18n="r.sp1">Z terasy máte přímo na očích dominantu náměstí, kostel sv. Bartoloměje ze 14. století, a rokokovou kašnu vytesanou z jediného kusu kamene.</p>
+        <p data-i18n="r.sp2">V létě tu sedíte pod slunečníkem se zmrzlinou, v zimě uvnitř pod lampami, které vypadají jako pampelišky.</p>
       </div>
     </div>
   </div>
@@ -566,29 +574,29 @@ footer{background:var(--milk)}
   <div class="wrap">
     <div class="sec-head rv">
       <svg class="doodle float slow rev" aria-hidden="true"><use href="#dd-cake"/></svg>
-      <p class="eyebrow">Kde nás najdete</p>
+      <p class="eyebrow" data-i18n="nav.kont">Kde nás najdete</p>
       <h2>Náměstí Komenského 93, Kunžak</h2>
     </div>
     <div class="visit">
       <div class="rv">
         <div class="blk">
-          <h4>Otevřeno</h4>
+          <h4 data-i18n="k.open">Otevřeno</h4>
           <dl class="hours" id="hours">
-            <div style="display:contents" data-day="1"><dt>Pondělí</dt><dd>zavřeno</dd></div>
-            <div style="display:contents" data-day="2"><dt>Úterý</dt><dd>13:00–18:00</dd></div>
-            <div style="display:contents" data-day="3"><dt>Středa</dt><dd>13:00–18:00</dd></div>
-            <div style="display:contents" data-day="4"><dt>Čtvrtek</dt><dd>13:00–18:00</dd></div>
-            <div style="display:contents" data-day="5"><dt>Pátek</dt><dd>13:00–18:00</dd></div>
-            <div style="display:contents" data-day="6"><dt>Sobota</dt><dd>13:00–18:00</dd></div>
-            <div style="display:contents" data-day="0"><dt>Neděle</dt><dd>zavřeno</dd></div>
+            <div style="display:contents" data-day="1"><dt data-i18n="d.1">Pondělí</dt><dd data-i18n="k.closed">zavřeno</dd></div>
+            <div style="display:contents" data-day="2"><dt data-i18n="d.2">Úterý</dt><dd>13:00–18:00</dd></div>
+            <div style="display:contents" data-day="3"><dt data-i18n="d.3">Středa</dt><dd>13:00–18:00</dd></div>
+            <div style="display:contents" data-day="4"><dt data-i18n="d.4">Čtvrtek</dt><dd>13:00–18:00</dd></div>
+            <div style="display:contents" data-day="5"><dt data-i18n="d.5">Pátek</dt><dd>13:00–18:00</dd></div>
+            <div style="display:contents" data-day="6"><dt data-i18n="d.6">Sobota</dt><dd>13:00–18:00</dd></div>
+            <div style="display:contents" data-day="0"><dt data-i18n="d.0">Neděle</dt><dd data-i18n="k.closed">zavřeno</dd></div>
           </dl>
-          <p class="small-note">Zimní provozní doba. V létě máme otevřeno déle.</p>
+          <p class="small-note" data-i18n="k.note">Zimní provozní doba. V létě máme otevřeno déle.</p>
         </div>
-        <div class="blk"><h4>Zavolejte</h4><a class="big" href="tel:+420702054332">702 054 332</a></div>
-        <div class="blk"><h4>Napište</h4><a href="mailto:hana.vejborova@seznam.cz" style="color:var(--blue);font-weight:600">hana.vejborova@seznam.cz</a></div>
-        <div class="blk"><h4>Adresa</h4><p>náměstí Komenského 93<br>378 62 Kunžak</p></div>
+        <div class="blk"><h4 data-i18n="k.call">Zavolejte</h4><a class="big" href="tel:+420702054332">702 054 332</a></div>
+        <div class="blk"><h4 data-i18n="k.mail">Napište</h4><a href="mailto:hana.vejborova@seznam.cz" style="color:var(--blue);font-weight:600">hana.vejborova@seznam.cz</a></div>
+        <div class="blk"><h4 data-i18n="k.addr">Adresa</h4><p>náměstí Komenského 93<br>378 62 Kunžak</p></div>
       </div>
-      <div class="map rv" style="--d:.1s"><iframe src="https://www.google.com/maps?q=n%C3%A1m%C4%9Bst%C3%AD+Komensk%C3%A9ho+93,+Kun%C5%BEak&z=16&hl=cs&output=embed" title="Mapa: Kavárna Kafíčko, Kunžak" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      <div class="map rv" style="--d:.1s"><iframe id="gmap" src="https://www.google.com/maps?q=n%C3%A1m%C4%9Bst%C3%AD+Komensk%C3%A9ho+93,+Kun%C5%BEak&z=16&hl=cs&output=embed" title="Mapa: Kavárna Kafíčko, Kunžak" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </div>
   </div>
 </section>
@@ -637,13 +645,13 @@ footer{background:var(--milk)}
     <img src="img/logo.jpg" alt="" width="400" height="400">
     <span>Kavárna Kafíčko · náměstí Komenského 93, Kunžak</span>
     <a href="tel:+420702054332">702 054 332</a>
-    <span class="end">Návrh webu, ne oficiální stránka kavárny. Připravilo <a href="mailto:info@filsns.cz" style="color:var(--blue)">filsns s.r.o.</a> Fotky a plakáty pocházejí z Facebooku kavárny.</span>
+    <span class="end" data-i18n="f.end">Návrh webu, ne oficiální stránka kavárny. Připravilo <a href="mailto:info@filsns.cz" style="color:var(--blue)">filsns s.r.o.</a> Fotky a plakáty pocházejí z Facebooku kavárny.</span>
   </div>
 </footer>
 
 <div class="mobar">
-  <a class="btn line" href="#tabule">Nabídka</a>
-  <a class="btn" href="tel:+420702054332">Zavolat</a>
+  <a class="btn line" href="#tabule" data-i18n="mb.menu">Nabídka</a>
+  <a class="btn" href="tel:+420702054332" data-i18n="nav.call">Zavolat</a>
 </div>
 
 <script type="application/ld+json">
@@ -663,6 +671,27 @@ footer{background:var(--milk)}
   var $ = function(id){ return document.getElementById(id); };
   var $$ = function(s){ return [].slice.call(document.querySelectorAll(s)); };
 
+  var I18N = {en: {"e.4w": "from April", "t.ph": "E.g. The Kunžak Falcons", "demo.tag": "Website proposal", "demo.text": "This is not Kafíčko's official website. It is a non-binding proposal by filsns s.r.o., built from your Facebook page and public profiles.", "demo.link": "Who sent this →", "brand.sub": "café · Kunžak", "nav.tab": "On the board", "nav.akce": "Quizzes & events", "nav.vino": "Wine", "nav.rod": "For families", "nav.kont": "Find us", "nav.call": "Call", "nav.menu": "Menu", "h.eb": "Czech Canada, right on the square", "h.h1": "Kafíčko <em>on the square</em> in Kunžak", "h.sub": "Italian Moak coffee, cakes from the pastry shops of Telč, Mrákotín and Zahrádky, ice cream, open sandwiches and good Moravian wine. A summer terrace looking onto St Bartholomew's church.", "h.b1": "What's on the board today", "h.b2": "Next quiz", "h.pcap": "On the square", "h.note": "Today on the board:<small>cappuccino, a cake from Telč and a moment of peace</small>", "h.stamp": "<b>4.7</b>from 19 reviews", "p.1": "Italian Moak coffee", "p.2": "Summer terrace on the square", "p.3": "Kids' corner", "p.4": "Dogs welcome", "p.5": "Free Wi-Fi", "t.eb": "What we serve", "t.lede": "Like the chalkboard by the door. We brew Italian Moak coffee, bring cakes from local pastry chefs and go to South Moravia for wine.", "t.h3": "Café Kafíčko", "t.k": "Moak coffee", "t.k5": "Viennese coffee<small>with whipped cream</small>", "t.k6": "Iced coffee<small>in summer</small>", "t.s": "Sweet", "t.s1": "Cakes from Telč<small>and Mrákotín</small>", "t.s2": "Cakes from Zahrádky", "t.s3": "Ice cream<small>from April</small>", "t.sl": "Savoury", "t.sl1": "Open sandwiches", "t.v": "Wine & season", "t.v3": "Forman winery<small>Perná</small>", "t.v4": "Burčák (young wine)<small>September and October</small>", "t.v5": "St Martin's wine<small>from 11 November</small>", "t.foot": "Prices at the counter. <b>Kafíčko in Kunžak</b> · come for a chat", "e.eb": "Where Kunžak meets", "e.h2": "Quizzes, burčák and St Martin's wine", "e.lede": "Café quizzes for teams, wine tastings and seasonal treats. These are events we've held in recent months.", "e.1w": "17 April, 6 pm", "e.1h": "Star Quiz", "e.1p": "Café quiz for teams. Token entry fee of 50 CZK; teams register at the café.", "e.past": "past", "e.2w": "6 December, 4 pm", "e.2h": "Pre-Christmas Quiz", "e.2p": "Advent quiz for teams. Token entry fee of 50 CZK; sign up at the café.", "e.3w": "28 February, 7 pm", "e.3h": "Around the World", "e.3p": "Travel quiz. Limited capacity; teams signed up in the Facebook comments.", "e.4h": "Ice cream is back", "e.4p": "Every spring the ice cream is back. Best enjoyed on the terrace by the fountain.", "e.4t": "every year", "tm.eb": "Next quiz coming up", "tm.h": "Sign up your team in advance", "tm.p": "Places are limited. Book yours here in thirty seconds, no comments under a post needed.", "tm.l1": "Team name", "tm.l2": "Players", "tm.l3": "Captain's phone", "tm.btn": "Sign up team", "g.eb": "At our place", "g.h2": "Quiz night at Kafíčko", "g.c1": "Packed to the door", "g.c2": "Teams at the tables", "g.c3": "Entrance from the square", "w.eb": "From South Moravia to Kunžak", "w.h2": "Wine from winemakers we know", "w.lede": "A glass with your cake, a bottle for the evening. Our wines come from three family wineries, and we host tastings.", "w.forman": "Forman winery", "w.t1": "Wine tastings", "w.t2": "Burčák in season", "w.t3": "St Martin's wine", "r.eb": "Everyone welcome", "r.h2": "For families, hikers and dogs", "r.1": "A place to play, so parents can finish their coffee in peace.", "r.2": "Dogs are welcome inside and on the terrace.", "r.3h": "Summer terrace", "r.3": "Outdoor seating on the square, looking onto the church and the fountain.", "r.4h": "Touring Czech Canada", "r.4": "A stop on your bike ride, your hike or on the way to Vysoký Kámen.", "r.seb": "View from the terrace", "r.sh": "A church from 1370 and a fountain carved from a single stone", "r.sp1": "From the terrace you look straight at the square's landmark, the 14th-century church of St Bartholomew, and a rococo fountain carved from a single piece of stone.", "r.sp2": "In summer you sit under a parasol with ice cream, in winter indoors under lamps that look like dandelions.", "k.open": "Opening hours", "d.1": "Monday", "d.2": "Tuesday", "d.3": "Wednesday", "d.4": "Thursday", "d.5": "Friday", "d.6": "Saturday", "d.0": "Sunday", "k.closed": "closed", "k.note": "Winter hours. We're open longer in summer.", "k.call": "Call us", "k.mail": "Write to us", "k.addr": "Address", "mb.menu": "Menu", "f.end": "Website proposal, not the café's official page. Prepared by <a href=\"mailto:info@filsns.cz\" style=\"color:var(--blue)\">filsns s.r.o.</a> Photos and posters come from the café's Facebook page."}, de: {"e.4w": "ab April", "t.ph": "z. B. Die Kunžaker Falken", "demo.tag": "Website-Entwurf", "demo.text": "Dies ist nicht die offizielle Website von Kafíčko, sondern ein unverbindlicher Entwurf von filsns s.r.o., erstellt aus Ihrer Facebook-Seite und öffentlichen Profilen.", "demo.link": "Wer das geschickt hat →", "brand.sub": "Café · Kunžak", "nav.tab": "Auf der Tafel", "nav.akce": "Quiz & Events", "nav.vino": "Wein", "nav.rod": "Für Familien", "nav.kont": "So finden Sie uns", "nav.call": "Anrufen", "nav.menu": "Menü", "h.eb": "Böhmisch Kanada, direkt am Marktplatz", "h.h1": "Kafíčko <em>am Marktplatz</em> in Kunžak", "h.sub": "Italienischer Moak-Kaffee, Kuchen aus den Konditoreien in Telč, Mrákotín und Zahrádky, Eis, belegte Brötchen und guter mährischer Wein. Sommerterrasse mit Blick auf die Bartholomäuskirche.", "h.b1": "Was heute auf der Tafel steht", "h.b2": "Nächstes Quiz", "h.pcap": "Bei uns am Platz", "h.note": "Heute auf der Tafel:<small>Cappuccino, Kuchen aus Telč und ein Moment Ruhe</small>", "h.stamp": "<b>4,7</b>aus 19 Bewertungen", "p.1": "Italienischer Moak-Kaffee", "p.2": "Sommerterrasse am Platz", "p.3": "Kinderecke", "p.4": "Hunde willkommen", "p.5": "WLAN gratis", "t.eb": "Was es bei uns gibt", "t.lede": "Wie die Kreidetafel vor der Tür. Wir brühen italienischen Moak-Kaffee, holen Kuchen von Konditoren aus der Umgebung und fahren für Wein nach Südmähren.", "t.h3": "Café Kafíčko", "t.k": "Moak-Kaffee", "t.k5": "Wiener Melange<small>mit Schlagsahne</small>", "t.k6": "Eiskaffee<small>im Sommer</small>", "t.s": "Süßes", "t.s1": "Kuchen aus Telč<small>und Mrákotín</small>", "t.s2": "Torten aus Zahrádky", "t.s3": "Eis<small>ab April</small>", "t.sl": "Herzhaftes", "t.sl1": "Belegte Brötchen", "t.v": "Wein & Saison", "t.v3": "Weingut Forman<small>Perná</small>", "t.v4": "Burčák (Federweißer)<small>September und Oktober</small>", "t.v5": "Martinswein<small>ab 11. 11.</small>", "t.foot": "Preise an der Theke. <b>Kafíčko in Kunžak</b> · kommen Sie auf einen Plausch", "e.eb": "Hier trifft sich Kunžak", "e.h2": "Quiz, Federweißer und Martinswein", "e.lede": "Café-Quiz für Teams, Weinproben und saisonale Leckereien. Das sind unsere Veranstaltungen der letzten Monate.", "e.1w": "17. April, 18:00", "e.1h": "Sternen-Quiz", "e.1p": "Café-Quiz für Teams. Symbolischer Eintritt 50 CZK, Anmeldung im Café.", "e.past": "vorbei", "e.2w": "6. Dezember, 16:00", "e.2h": "Vorweihnachts-Quiz", "e.2p": "Advents-Quiz für Teams. Symbolischer Eintritt 50 CZK, Anmeldung im Café.", "e.3w": "28. Februar, 19:00", "e.3h": "Rund um die Welt", "e.3p": "Reise-Quiz. Begrenzte Plätze, Anmeldung in den Facebook-Kommentaren.", "e.4h": "Das Eis ist zurück", "e.4p": "Jeden Frühling gibt es wieder Eis. Am besten auf der Terrasse mit Blick auf den Brunnen.", "e.4t": "jedes Jahr", "tm.eb": "Das nächste Quiz kommt", "tm.h": "Melden Sie Ihr Team vorab an", "tm.p": "Die Plätze sind begrenzt. Hier reservieren Sie in einer halben Minute, ohne Kommentare unter einem Beitrag.", "tm.l1": "Teamname", "tm.l2": "Spieler", "tm.l3": "Telefon des Kapitäns", "tm.btn": "Team anmelden", "g.eb": "Bei uns", "g.h2": "Quizabend im Kafíčko", "g.c1": "Voll bis zur Tür", "g.c2": "Teams an den Tischen", "g.c3": "Eingang vom Platz", "w.eb": "Aus Südmähren nach Kunžak", "w.h2": "Wein von Winzern, die wir kennen", "w.lede": "Ein Glas zum Kuchen, eine Flasche für den Abend. Unsere Weine kommen von drei Familienweingütern, und wir veranstalten Weinproben.", "w.forman": "Weingut Forman", "w.t1": "Weinproben", "w.t2": "Federweißer in der Saison", "w.t3": "Martinswein", "r.eb": "Alle willkommen", "r.h2": "Für Familien, Ausflügler und Hunde", "r.1": "Ein Platz zum Spielen, damit die Eltern in Ruhe ihren Kaffee trinken.", "r.2": "Hunde dürfen mit hinein und auf die Terrasse.", "r.3h": "Sommerterrasse", "r.3": "Sitzplätze draußen am Platz, mit Blick auf Kirche und Brunnen.", "r.4h": "Unterwegs in Böhmisch Kanada", "r.4": "Ein Halt auf der Rad- oder Wandertour oder auf dem Weg zum Vysoký Kámen.", "r.seb": "Blick von der Terrasse", "r.sh": "Eine Kirche von 1370 und ein Brunnen aus einem einzigen Stein", "r.sp1": "Von der Terrasse blicken Sie direkt auf das Wahrzeichen des Platzes, die Bartholomäuskirche aus dem 14. Jahrhundert, und einen Rokoko-Brunnen aus einem einzigen Stein.", "r.sp2": "Im Sommer sitzen Sie mit Eis unter dem Sonnenschirm, im Winter drinnen unter Lampen, die wie Pusteblumen aussehen.", "k.open": "Öffnungszeiten", "d.1": "Montag", "d.2": "Dienstag", "d.3": "Mittwoch", "d.4": "Donnerstag", "d.5": "Freitag", "d.6": "Samstag", "d.0": "Sonntag", "k.closed": "geschlossen", "k.note": "Winteröffnungszeiten. Im Sommer haben wir länger geöffnet.", "k.call": "Rufen Sie an", "k.mail": "Schreiben Sie uns", "k.addr": "Adresse", "mb.menu": "Karte", "f.end": "Website-Entwurf, nicht die offizielle Seite des Cafés. Erstellt von <a href=\"mailto:info@filsns.cz\" style=\"color:var(--blue)\">filsns s.r.o.</a> Fotos und Plakate stammen von der Facebook-Seite des Cafés."}};
+  var JS = {"cs": {"title": "Kavárna Kafíčko, Kunžak (návrh webu)", "open": "Máme otevřeno, dnes do {t}", "opensAt": "Dnes otevíráme ve {t}", "closedNext": "Zavřeno, otevíráme {d} ve {t}", "days": ["v neděli", "v pondělí", "v úterý", "ve středu", "ve čtvrtek", "v pátek", "v sobotu"], "errName": "Doplňte prosím název týmu.", "errTel": "Telefon nevypadá správně.", "ok": "<b>Ukázka, přihláška se nikam neodeslala.</b>Na ostrém webu by teď kavárně přišlo: tým <strong>{n}</strong>, {c} hráči. Kapitán by dostal SMS s potvrzením."}, "en": {"title": "Café Kafíčko, Kunžak (website proposal)", "open": "Open now, until {t} today", "opensAt": "Opening today at {t}", "closedNext": "Closed, we open {d} at {t}", "days": ["on Sunday", "on Monday", "on Tuesday", "on Wednesday", "on Thursday", "on Friday", "on Saturday"], "errName": "Please fill in your team name.", "errTel": "The phone number doesn't look right.", "ok": "<b>Sample only, nothing was sent.</b>On the live site the café would now receive: team <strong>{n}</strong>, {c} players. The captain would get a confirmation text."}, "de": {"title": "Café Kafíčko, Kunžak (Website-Entwurf)", "open": "Jetzt geöffnet, heute bis {t}", "opensAt": "Heute öffnen wir um {t}", "closedNext": "Geschlossen, wir öffnen {d} um {t}", "days": ["am Sonntag", "am Montag", "am Dienstag", "am Mittwoch", "am Donnerstag", "am Freitag", "am Samstag"], "errName": "Bitte Teamnamen angeben.", "errTel": "Die Telefonnummer sieht nicht richtig aus.", "ok": "<b>Nur Beispiel, es wurde nichts gesendet.</b>Auf der echten Website bekäme das Café jetzt: Team <strong>{n}</strong>, {c} Spieler. Der Kapitän erhielte eine Bestätigungs-SMS."}};
+  var CS = {}, CSPH = {};
+  $$("[data-i18n]").forEach(function(el){ var k = el.getAttribute("data-i18n"); if (!(k in CS)) CS[k] = el.innerHTML; });
+  $$("[data-i18n-ph]").forEach(function(el){ CSPH[el.getAttribute("data-i18n-ph")] = el.getAttribute("placeholder"); });
+  var LANG = "cs";
+  function T(k){ return JS[LANG][k]; }
+  function setLang(l){
+    if (!JS[l]) l = "cs"; LANG = l;
+    var d = I18N[l] || {};
+    $$("[data-i18n]").forEach(function(el){ var k = el.getAttribute("data-i18n"); el.innerHTML = (l !== "cs" && k in d) ? d[k] : CS[k]; });
+    $$("[data-i18n-ph]").forEach(function(el){ var k = el.getAttribute("data-i18n-ph"); el.setAttribute("placeholder", (l !== "cs" && k in d) ? d[k] : CSPH[k]); });
+    document.documentElement.lang = l; document.title = T("title");
+    $$("#lang button").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-lang") === l); });
+    var gm = $("gmap"); if (gm && gm.src.indexOf("hl=" + l + "&") === -1) gm.src = gm.src.replace(/hl=[a-z]{2}&/, "hl=" + l + "&");
+    try { localStorage.setItem("kaficko-lang", l); } catch(e){}
+    renderOpen();
+    var ok = document.querySelector("#tform .ok"); if (ok) ok.remove(); $("terr").textContent = "";
+  }
+  $$("#lang button").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang")); }); });
+
   var nav = $("nav");
   var onScroll = function(){ nav.classList.toggle("solid", window.scrollY > 20); };
   onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
@@ -681,30 +710,38 @@ footer{background:var(--milk)}
 
   /* otevírací doba (zimní podle Firmy.cz) */
   var HOURS = {0:null, 1:null, 2:[780,1080], 3:[780,1080], 4:[780,1080], 5:[780,1080], 6:[780,1080]};
-  var NAMES = ["v neděli","v pondělí","v úterý","ve středu","ve čtvrtek","v pátek","v sobotu"];
   function hhmm(m){ return Math.floor(m/60) + ":" + String(m%60).padStart(2,"0"); }
-  var now = new Date(), day = now.getDay(), mins = now.getHours()*60 + now.getMinutes(), t = HOURS[day];
-  var st = $("status"), txt = $("statusText");
-  if (t && mins >= t[0] && mins < t[1]) { txt.textContent = "Máme otevřeno, dnes do " + hhmm(t[1]); }
-  else {
-    st.classList.add("shut");
-    if (t && mins < t[0]) txt.textContent = "Dnes otevíráme ve " + hhmm(t[0]);
-    else { var d = day, n = null; for (var i = 0; i < 7; i++){ d = (d+1)%7; if (HOURS[d]) { n = d; break; } } txt.textContent = "Zavřeno, otevíráme " + NAMES[n] + " ve " + hhmm(HOURS[n][0]); }
+  function renderOpen(){
+    var now = new Date(), day = now.getDay(), mins = now.getHours()*60 + now.getMinutes(), t = HOURS[day];
+    var st = $("status"), txt = $("statusText");
+    st.classList.remove("shut");
+    if (t && mins >= t[0] && mins < t[1]) { txt.textContent = T("open").replace("{t}", hhmm(t[1])); }
+    else {
+      st.classList.add("shut");
+      if (t && mins < t[0]) txt.textContent = T("opensAt").replace("{t}", hhmm(t[0]));
+      else { var d = day, n = null; for (var i = 0; i < 7; i++){ d = (d+1)%7; if (HOURS[d]) { n = d; break; } } txt.textContent = T("closedNext").replace("{d}", T("days")[n]).replace("{t}", hhmm(HOURS[n][0])); }
+    }
+    var row = document.querySelector('#hours [data-day="' + day + '"]'); if (row) row.classList.add("today");
   }
-  var row = document.querySelector('#hours [data-day="' + day + '"]'); if (row) row.classList.add("today");
 
   /* přihláška týmu (ukázka) */
   var f = $("tform"), err = $("terr");
   f.addEventListener("submit", function(e){
     e.preventDefault(); err.textContent = "";
     var name = $("t-name"), phone = $("t-phone");
-    if (name.value.trim().length < 2) { err.textContent = "Doplňte prosím název týmu."; name.focus(); return; }
-    if (!/^\+?[0-9]{9,13}$/.test(phone.value.replace(/[\s-]/g,""))) { err.textContent = "Telefon nevypadá správně."; phone.focus(); return; }
+    if (name.value.trim().length < 2) { err.textContent = T("errName"); name.focus(); return; }
+    if (!/^\+?[0-9]{9,13}$/.test(phone.value.replace(/[\s-]/g,""))) { err.textContent = T("errTel"); phone.focus(); return; }
     var old = f.querySelector(".ok"); if (old) old.remove();
     var box = document.createElement("div"); box.className = "ok"; box.setAttribute("role","status");
-    box.innerHTML = "<b>Ukázka, přihláška se nikam neodeslala.</b>Na ostrém webu by teď kavárně přišlo: tým <strong>" + name.value.trim().replace(/</g,"&lt;") + "</strong>, " + $("t-size").value + " hráči. Kapitán by dostal SMS s potvrzením.";
+    box.innerHTML = T("ok").replace("{n}", name.value.trim().replace(/</g,"&lt;")).replace("{c}", $("t-size").value);
     f.appendChild(box);
   });
+
+  var want = null;
+  try { want = new URLSearchParams(location.search).get("lang"); } catch(e){}
+  if (!want) { try { want = localStorage.getItem("kaficko-lang"); } catch(e){} }
+  if (!want) { var nl = (navigator.language || "cs").slice(0,2).toLowerCase(); want = (nl === "de" || nl === "en") ? nl : "cs"; }
+  setLang(want);
 })();
 </script>
 </body>
