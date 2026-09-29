@@ -234,9 +234,140 @@ footer{background:var(--milk);color:var(--muted);padding-block:2.2rem 2.6rem;fon
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .js .rv,.js .h-in,.js .hero-pic,.js .note,.js .stamp{opacity:1!important}
 }
+
+/* ================= malovaný styl ================= */
+:root{ --peach:#F6D9C4; --sage:#D9E4CF; --sage-ink:#5E7A55; --dusty:#D5E0EA; --paper:#FFFDF8; --milk:#F6EBDD; }
+body{background:var(--cream);color:#4A2E25;line-height:1.72;position:relative}
+body::before{content:"";position:fixed;inset:-10%;z-index:-1;pointer-events:none;filter:blur(50px);opacity:.55;
+  background:
+    radial-gradient(30% 25% at 8% 18%, #FBE3B0 0%, transparent 70%),
+    radial-gradient(28% 22% at 92% 26%, #F8D5C2 0%, transparent 70%),
+    radial-gradient(30% 26% at 14% 82%, #DCE8D2 0%, transparent 70%),
+    radial-gradient(26% 24% at 88% 86%, #D8E3EE 0%, transparent 70%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .3  0 0 0 0 .2  0 0 0 .07 0'/></filter><rect width='260' height='260' filter='url(%23n)'/></svg>")}
+
+/* nadpisy s tahem štětce */
+.sec-head{position:relative}
+.sec-head h2{position:relative;display:inline-block;padding-bottom:.35rem}
+.sec-head h2::after{content:"";position:absolute;left:-.2rem;right:-.4rem;bottom:-.15rem;height:18px;z-index:-1;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 18' preserveAspectRatio='none'><path d='M4 12c50-7 110-9 170-6 40 2 80 4 122 0' fill='none' stroke='%23EDB84A' stroke-width='9' stroke-linecap='round' opacity='.75'/></svg>") no-repeat center/100% 100%}
+.eyebrow{color:#9A6A4F}
+
+/* kreslená tlačítka */
+.btn{border-radius:255px 18px 225px 18px/18px 225px 18px 255px;box-shadow:2px 3px 0 rgba(59,33,26,.18)}
+.btn:hover{transform:translateY(-2px) rotate(-.6deg)}
+.btn.line{box-shadow:inset 0 0 0 2px var(--espresso),2px 3px 0 rgba(59,33,26,.12)}
+
+/* ručně kreslené obrázky */
+.doodle{position:absolute;fill:none;stroke:#8C5E45;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:.6;pointer-events:none}
+.doodle.gold{stroke:#D39B2E;opacity:.75} .doodle.sage{stroke:var(--sage-ink)} .doodle.blue{stroke:#4F7297}
+.js .float{animation:float 6s ease-in-out infinite}
+.js .float.slow{animation-duration:9s} .js .float.rev{animation-direction:reverse}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-8px) rotate(calc(var(--r,0deg) + 4deg))}}
+.sec-head .doodle{right:-90px;top:-6px;width:78px;height:78px}
+.hero{position:relative;overflow:hidden}
+.hero .doodle.d1{left:3%;top:10%;width:44px;height:44px;--r:-20deg}
+.hero .doodle.d2{left:44%;top:6%;width:30px;height:30px;--r:25deg}
+.hero .doodle.d3{left:40%;bottom:12%;width:54px;height:54px;--r:-10deg}
+.hero .doodle.d4{right:3%;bottom:8%;width:36px;height:36px;--r:15deg}
+.hero .doodle.d5{left:1.5%;bottom:22%;width:32px;height:32px;--r:40deg}
+
+/* hero jako polaroid s páskou */
+.hero-pic{background:var(--paper);padding:14px 14px 52px;border-radius:6px;transform:rotate(1.8deg);box-shadow:0 24px 50px -28px rgba(59,33,26,.55),0 2px 0 rgba(59,33,26,.05)}
+.hero-pic img{border-radius:3px;box-shadow:none}
+.tape{position:absolute;top:-14px;left:50%;width:120px;height:30px;transform:translateX(-50%) rotate(-4deg);background:rgba(237,184,74,.55);box-shadow:0 1px 2px rgba(0,0,0,.08);border-left:2px dashed rgba(255,255,255,.35);border-right:2px dashed rgba(255,255,255,.35)}
+.pcap{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:var(--hand);font-weight:700;font-size:1.45rem;color:#6B4A3C}
+.note{bottom:-2.2rem}
+.status{background:var(--paper);border:1.5px dashed rgba(59,33,26,.25)}
+
+/* pruh výhod: pastelové štítky místo tmavého pruhu */
+.perks{background:transparent;color:var(--espresso);position:relative}
+.perks .wrap{justify-content:center;gap:.7rem;padding-block:1.4rem}
+.perks span{background:var(--paper);border-radius:999px;padding:.55rem 1.1rem;box-shadow:0 6px 16px -10px rgba(59,33,26,.35);font-weight:500}
+.perks span:nth-child(5n+1){background:#FCEFD0} .perks span:nth-child(5n+2){background:#F9E2D4} .perks span:nth-child(5n+3){background:#E6EEDD} .perks span:nth-child(5n+4){background:#E2EAF2} .perks span:nth-child(5n+5){background:#F5E7F0}
+.perks svg{stroke:#8C5E45}
+
+/* vlnité sekce s akvarelem */
+.sec.milk{position:relative;z-index:1;background:
+  radial-gradient(40% 50% at 12% 30%, rgba(251,227,176,.55), transparent 70%),
+  radial-gradient(35% 45% at 88% 70%, rgba(220,232,210,.6), transparent 70%),
+  var(--milk)}
+.sec.milk::before,.sec.milk::after{content:"";position:absolute;left:0;right:0;height:42px;pointer-events:none;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 42' preserveAspectRatio='none'><path d='M0 42V20c110 16 230-18 360-8s240 22 360 9 250-24 370-13 230 17 350 4V42z' fill='%23F6EBDD'/></svg>") no-repeat center/100% 100%}
+.sec.milk::before{top:-41px}
+.sec.milk::after{bottom:-41px;transform:scaleY(-1)}
+
+/* tabule: křídové obrázky */
+.board{border-radius:14px;border-width:16px;border-color:#9A6644;box-shadow:inset 0 0 40px rgba(0,0,0,.35),0 30px 60px -30px rgba(59,33,26,.6)}
+.board .chalkd{position:absolute;fill:none;stroke:rgba(244,239,228,.55);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.board .c1{left:22px;top:18px;width:64px;height:64px;transform:rotate(-12deg)}
+.board .c2{right:26px;top:22px;width:44px;height:44px}
+.board .c3{right:34px;bottom:22px;width:56px;height:56px;transform:rotate(10deg)}
+.board .c4{left:30px;bottom:26px;width:40px;height:40px}
+.bsec h4{border-bottom:0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'><path d='M2 6c40-4 90-5 140-2s100 3 156-1' fill='none' stroke='%23F4EFE4' stroke-width='2' stroke-linecap='round' stroke-dasharray='6 5' opacity='.45'/></svg>") no-repeat bottom/100% 10px;padding-bottom:.45rem}
+
+/* akce jako přilepené plakátky */
+.ev{border-radius:10px;background:var(--paper);position:relative;overflow:visible;box-shadow:0 16px 30px -22px rgba(59,33,26,.55)}
+.ev img{border-radius:8px 8px 0 0}
+.ev:nth-child(odd){transform:rotate(-1.2deg)} .ev:nth-child(even){transform:rotate(1.1deg)}
+.ev:hover{transform:rotate(0) translateY(-5px)}
+.ev::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;transform:translateX(-50%) rotate(3deg);background:rgba(213,224,234,.85);z-index:2;border-left:2px dashed rgba(255,255,255,.5);border-right:2px dashed rgba(255,255,255,.5)}
+.ev:nth-child(even)::before{background:rgba(246,217,196,.9);transform:translateX(-50%) rotate(-4deg)}
+.ev .tag{background:#FCEFD0;color:#8C5E45}
+.team{background:var(--paper);border:2px dashed rgba(59,33,26,.22);border-radius:26px;position:relative;box-shadow:0 20px 40px -30px rgba(59,33,26,.5)}
+.team::after{content:"";position:absolute;right:28px;top:-16px;width:90px;height:28px;transform:rotate(6deg);background:rgba(237,184,74,.55)}
+.tf input,.tf select{border-radius:14px 10px 16px 9px;border:1.5px solid #E6D3BE;background:#FFFCF6}
+
+/* galerie jako polaroidy */
+.gal{gap:1.6rem}
+.gal figure{background:var(--paper);padding:10px 10px 40px;border-radius:5px;box-shadow:0 18px 36px -24px rgba(59,33,26,.55);overflow:visible}
+.gal figure:nth-child(1){transform:rotate(-1.4deg)} .gal figure:nth-child(2){transform:rotate(1.6deg)} .gal figure:nth-child(3){transform:rotate(-.8deg)}
+.gal figure img{border-radius:3px}
+.gal figure:hover img{transform:none}
+.gal figure:hover{transform:rotate(0) scale(1.01)}
+.gal figcaption{left:0;right:0;bottom:8px;background:none;text-align:center;transform:none;font-size:1.4rem;color:#6B4A3C;padding:0}
+
+/* víno */
+.wine img{border-radius:24px;box-shadow:0 20px 40px -28px rgba(59,33,26,.5);background:var(--paper);padding:10px;mix-blend-mode:normal;transform:rotate(-1.5deg)}
+.winery li{background:var(--paper);border:1.5px dashed rgba(59,33,26,.2);border-radius:18px 14px 20px 12px}
+.wine-tags span{background:#6B4A3C;border-radius:255px 18px 225px 18px/18px 225px 18px 255px}
+
+/* rodiny: pastelové kartičky */
+.fam div{border-radius:26px 20px 30px 18px;box-shadow:0 14px 30px -24px rgba(59,33,26,.5);position:relative}
+.fam div:nth-child(1){background:#FCEFD0} .fam div:nth-child(2){background:#F9E2D4} .fam div:nth-child(3){background:#E6EEDD} .fam div:nth-child(4){background:#E2EAF2}
+.fam .ic{background:var(--paper)}
+.square img{border-radius:6px;background:var(--paper);padding:10px 10px 10px;box-shadow:0 18px 36px -24px rgba(59,33,26,.55);transform:rotate(1.2deg)}
+
+/* kontakt a mapa */
+.map{border-radius:26px;border:10px solid var(--paper);box-shadow:0 20px 40px -26px rgba(59,33,26,.5)}
+.hours{background:var(--paper);padding:1rem 1.2rem;border-radius:20px 16px 22px 14px;border:1.5px dashed rgba(59,33,26,.2)}
+
+/* nabídka pro majitele: teplejší, s akvarelem */
+.pitch{background:
+  radial-gradient(40% 60% at 10% 20%, rgba(237,184,74,.14), transparent 70%),
+  radial-gradient(40% 60% at 90% 80%, rgba(217,228,207,.12), transparent 70%),
+  #3B241C;position:relative}
+.pitch::before{content:"";position:absolute;left:0;right:0;top:-41px;height:42px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 42' preserveAspectRatio='none'><path d='M0 42V22c120-18 240 16 360 6s240-20 360-8 250 22 370 10 230-16 350-4V42z' fill='%233B241C'/></svg>") no-repeat center/100% 100%}
+.need{border-style:dashed}
+footer{background:var(--milk)}
+
+@media (max-width:1000px){ .sec-head .doodle{right:0;top:-40px;width:56px;height:56px} .hero .doodle.d2,.hero .doodle.d3{display:none} }
+@media (max-width:640px){ .hero-pic{transform:rotate(1deg)} .ev,.ev:nth-child(odd),.ev:nth-child(even){transform:none} .gal figure{transform:none!important} .board .chalkd{display:none} }
+@media (prefers-reduced-motion:reduce){ .js .float{animation:none} }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="dd-cup" viewBox="0 0 40 44"><path d="M6 17h24v8c0 8-5 13-12 13S6 33 6 25z"/><path d="M30 20h3a4.5 4.5 0 0 1 0 9h-3"/><path d="M13 5c-2.5 3 2.5 4.5 0 8M19 3c-2.5 3 2.5 4.5 0 8M25 5c-2.5 3 2.5 4.5 0 8"/><path d="M3 41c8 1 22 1 32 0"/></symbol>
+  <symbol id="dd-bean" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="7" ry="9.5" transform="rotate(28 12 12)"/><path d="M8.5 5c3.5 4.5.5 10 7 14"/></symbol>
+  <symbol id="dd-leaf" viewBox="0 0 36 36"><path d="M4 32C6 14 17 5 32 4c0 14-9 25-28 28z"/><path d="M4 32L22 14M12 24l-1-6M17 19l5 1"/></symbol>
+  <symbol id="dd-spark" viewBox="0 0 24 24"><path d="M12 2c.6 5 2 6.4 7 7-5 .6-6.4 2-7 7-.6-5-2-6.4-7-7 5-.6 6.4-2 7-7z"/><path d="M19 16c.3 2 .9 2.6 3 3-2 .3-2.6.9-3 3-.3-2-.9-2.6-3-3 2-.4 2.6-1 3-3z"/></symbol>
+  <symbol id="dd-glass" viewBox="0 0 32 40"><path d="M8 3h16l-1.5 11a6.5 6.5 0 0 1-13 0z"/><path d="M16 21v12M9 34c4 1 10 1 14 0"/><path d="M9.5 10c4 1.5 9 1.5 13 0"/></symbol>
+  <symbol id="dd-cake" viewBox="0 0 36 36"><path d="M5 23h26v9H5z"/><path d="M5 23c3-7 23-7 26 0"/><path d="M18 10v6"/><path d="M18 5c-2.5 2.5 0 5 0 5s2.5-2.5 0-5z"/><path d="M5 27c3 2 6-2 9 0s6 2 9 0 5-2 8 0"/></symbol>
+  <symbol id="dd-heart" viewBox="0 0 32 32"><path d="M16 28S4 20 4 11.5a6 6 0 0 1 12-2 6 6 0 0 1 12 2C28 20 16 28 16 28z"/><path d="M10 10c1-1.5 3-1.5 4 0"/></symbol>
+  <symbol id="dd-steam" viewBox="0 0 30 60"><path d="M12 58c-9-10 9-15 0-26S16 10 10 2"/><path d="M22 50c-6-7 6-10 0-18"/></symbol>
+</svg>
 
 <div class="demobar">
   <div class="wrap">
@@ -264,6 +395,11 @@ footer{background:var(--milk);color:var(--muted);padding-block:2.2rem 2.6rem;fon
 </nav>
 
 <header class="hero" id="top">
+  <svg class="doodle float d1" aria-hidden="true"><use href="#dd-bean"/></svg>
+  <svg class="doodle gold float slow d2" aria-hidden="true"><use href="#dd-spark"/></svg>
+  <svg class="doodle sage float rev d3" aria-hidden="true"><use href="#dd-leaf"/></svg>
+  <svg class="doodle float d4" aria-hidden="true"><use href="#dd-bean"/></svg>
+  <svg class="doodle gold float slow rev d5" aria-hidden="true"><use href="#dd-spark"/></svg>
   <div class="wrap">
     <div>
       <p class="eyebrow h-in">Česká Kanada, přímo na náměstí</p>
@@ -276,7 +412,9 @@ footer{background:var(--milk);color:var(--muted);padding-block:2.2rem 2.6rem;fon
       </div>
     </div>
     <div class="hero-pic">
+      <span class="tape" aria-hidden="true"></span>
       <img src="img/fasada.jpg" alt="Kavárna Kafíčko na náměstí v Kunžaku, žlutá fasáda, slunečník a kolo před vchodem" width="960" height="720" fetchpriority="high">
+      <span class="pcap">U nás na náměstí</span>
       <p class="note">Dnes na tabuli:<small>cappuccino, zákusek z Telče a kousek klidu</small></p>
       <p class="stamp"><span><b>4,7</b>z 19 hodnocení</span></p>
     </div>
@@ -296,11 +434,13 @@ footer{background:var(--milk);color:var(--muted);padding-block:2.2rem 2.6rem;fon
 <section class="sec" id="tabule">
   <div class="wrap">
     <div class="sec-head rv">
+      <svg class="doodle float " aria-hidden="true"><use href="#dd-cup"/></svg>
       <p class="eyebrow">Co u nás dostanete</p>
       <h2>Na tabuli</h2>
       <p class="lede">Jako ta křídová před dveřmi. Kávu vaříme z italské Moak, zákusky vozíme od cukrářů z okolí a na víno jezdíme na jižní Moravu.</p>
     </div>
     <div class="board rv">
+      <svg class="chalkd c1" aria-hidden="true"><use href="#dd-cup"/></svg><svg class="chalkd c2" aria-hidden="true"><use href="#dd-spark"/></svg><svg class="chalkd c3" aria-hidden="true"><use href="#dd-cake"/></svg><svg class="chalkd c4" aria-hidden="true"><use href="#dd-bean"/></svg>
       <div class="board-head"><h3>Kavárna Kafíčko</h3><p>náměstí Komenského 93</p></div>
       <div class="bcols">
         <div class="bsec">
@@ -333,6 +473,7 @@ footer{background:var(--milk);color:var(--muted);padding-block:2.2rem 2.6rem;fon
 <section class="sec milk" id="akce">
   <div class="wrap">
     <div class="sec-head rv">
+      <svg class="doodle float gold slow" aria-hidden="true"><use href="#dd-spark"/></svg>
       <p class="eyebrow">Tady se Kunžak potkává</p>
       <h2>Kvízy, burčák a svatomartinské</h2>
       <p class="lede">Kavárenské kvízy pro týmy, ochutnávky vína a sezónní dobroty. Tohle jsou akce, které jsme u nás v posledních měsících měli.</p>
@@ -364,6 +505,7 @@ footer{background:var(--milk);color:var(--muted);padding-block:2.2rem 2.6rem;fon
 <section class="sec" id="galerie">
   <div class="wrap">
     <div class="sec-head rv">
+      <svg class="doodle float slow" aria-hidden="true"><use href="#dd-heart"/></svg>
       <p class="eyebrow">U nás</p>
       <h2>Kvízový večer v Kafíčku</h2>
     </div>
@@ -380,7 +522,7 @@ footer{background:var(--milk);color:var(--muted);padding-block:2.2rem 2.6rem;fon
     <div class="wine">
       <img class="rv" src="img/vino.jpg" alt="Kresba husy se dvěma lahvemi svatomartinského vína" width="900" height="1097" loading="lazy">
       <div class="rv" style="--d:.1s">
-        <p class="eyebrow">Z jižní Moravy do Kunžaku</p>
+        <p class="eyebrow">Z jižní Moravy do Kunžaku <svg class="doodle gold" aria-hidden="true" style="position:relative;display:inline-block;width:30px;height:36px;vertical-align:-8px;opacity:.85"><use href="#dd-glass"/></svg></p>
         <h2 style="font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:.8rem">Víno od vinařů, které známe</h2>
         <p class="lede">K zákusku sklenička, k večeru láhev. Vína vozíme od tří rodinných vinařství a pořádáme ochutnávky.</p>
         <ul class="winery">
@@ -397,6 +539,7 @@ footer{background:var(--milk);color:var(--muted);padding-block:2.2rem 2.6rem;fon
 <section class="sec" id="rodiny">
   <div class="wrap">
     <div class="sec-head rv">
+      <svg class="doodle float sage" aria-hidden="true"><use href="#dd-leaf"/></svg>
       <p class="eyebrow">Přijďte všichni</p>
       <h2>Pro rodiny, výletníky i pejsky</h2>
     </div>
@@ -421,6 +564,7 @@ footer{background:var(--milk);color:var(--muted);padding-block:2.2rem 2.6rem;fon
 <section class="sec milk" id="kontakt">
   <div class="wrap">
     <div class="sec-head rv">
+      <svg class="doodle float slow rev" aria-hidden="true"><use href="#dd-cake"/></svg>
       <p class="eyebrow">Kde nás najdete</p>
       <h2>Náměstí Komenského 93, Kunžak</h2>
     </div>
